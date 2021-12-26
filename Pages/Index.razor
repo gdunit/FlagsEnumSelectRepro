@@ -1,0 +1,24 @@
+﻿@using Blazorise;
+@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<Select Multiple="true" TValue="WorkingDays" @bind-SelectedValues="WorkingDaysValueList">
+    @foreach (WorkingDays wd in Enum.GetValues<WorkingDays>())
+    {
+        <SelectItem TValue="WorkingDays" Value="@wd">
+            @wd.ToString()
+        </SelectItem>
+    }             
+</Select>
+
+<Div>
+    Your Selection is: 
+    @WorkingDaysValue.ToString()
+</Div>
+
+<SurveyPrompt Title="How is Blazor working for you?" />
